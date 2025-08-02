@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables CSS pour les couleurs personnalisées */
+:root {
+  --color-primary-dark: #0B162C;
+  --color-primary-medium: #1C2942;
+  --color-primary-light: #3B556D;
+  --color-accent-mint: #5FC2BA;
+  --color-text-light: #FBFBFB;
+  --color-text-dark: #0B162C;
+}
+
+/* Styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Classes utilitaires personnalisées */
+@layer components {
+  .btn-primary {
+    @apply bg-accent-mint hover:bg-accent-mint/80 text-primary-dark font-medium px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-accent-mint text-accent-mint hover:bg-accent-mint hover:text-primary-dark font-medium px-6 py-3 rounded-lg transition-all duration-300;
+  }
+  
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-mint to-primary-light bg-clip-text text-transparent;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/10 border border-white/20;
+  }
+}
+
+/* Animations personnalisées */
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-medium);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-mint);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4fb3ab;
+}
+
+/* Style pour le mode sombre (par défaut) */
+.dark {
+  color-scheme: dark;
+}
+
+/* Style pour le mode clair */
+.light {
+  color-scheme: light;
+}
