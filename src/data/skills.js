@@ -74,7 +74,7 @@ export const skills = [
         color: "#646CFF"
       }
     ]
-  },
+  }
 ]
 
 
