@@ -80,8 +80,7 @@ export const skills = [
         color: "#646CFF"
       }
     ]
-  },
-
+  }
 ]
 
 export const softSkills = [
