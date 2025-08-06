@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { skills, softSkills } from '../data/skills'
 import { Code, Brain, TrendingUp, Award } from 'lucide-react'
 
 const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState(0)
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -52,14 +50,13 @@ const Skills = () => {
         </span>
       </div>
       
-      {/* Barre de progression */}
       <div className="w-full bg-primary-light/30 rounded-full h-2">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${skill.level}%` }}
           transition={{ duration: 1, delay: index * 0.1 }}
           viewport={{ once: true }}
-          className="h-2 rounded-full bg-gradient-to-r from-accent-mint to-primary-light"
+          className="h-2 rounded-full"
           style={{ 
             background: `linear-gradient(90deg, #5FC2BA 0%, ${skill.color || '#5FC2BA'} 100%)`
           }}
@@ -96,17 +93,17 @@ const Skills = () => {
           variants={containerVariants}
           className="space-y-16"
         >
-          {/* Header */}
+          {/* En-tête */}
           <motion.div variants={itemVariants} className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-text-light">
               Mes <span className="text-gradient">compétences</span>
             </h2>
             <p className="text-text-light/70 text-lg max-w-2xl mx-auto">
-              Voici les technologies et outils que j'utilise pour créer des expériences web modernes et performantes
+              Voici les technologies et outils que j'utilise
             </p>
           </motion.div>
 
-          {/* Statistiques globales */}
+          {/* Statistiques */}
           <motion.div 
             variants={itemVariants}
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
@@ -116,55 +113,39 @@ const Skills = () => {
               { icon: TrendingUp, label: "Progression", value: "+25%", color: "text-green-400" },
               { icon: Brain, label: "Projets", value: "10+", color: "text-purple-400" },
               { icon: Award, label: "Expertise", value: "Junior", color: "text-accent-mint" }
-            ].map((stat, index) => {
-              const Icon = stat.icon
-              return (
-                <motion.div
-                  key={stat.label}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-primary-medium/50 p-6 rounded-lg text-center border border-primary-light/20 hover:border-accent-mint/50 transition-all duration-300"
-                >
-                  <Icon className={`w-8 h-8 mx-auto mb-2 ${stat.color}`} />
-                  <div className="text-2xl font-bold text-text-light mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-text-light/70 text-sm">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              )
-            })}
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                whileHover={{ scale: 1.05 }}
+                className="bg-primary-medium/50 p-6 rounded-lg text-center border border-primary-light/20 hover:border-accent-mint/50 transition-all duration-300"
+              >
+                <stat.icon className={`w-8 h-8 mx-auto mb-2 ${stat.color}`} />
+                <div className="text-2xl font-bold text-text-light mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-text-light/70 text-sm">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
 
-          {/* Navigation des catégories */}
-          <motion.div variants={itemVariants} className="flex justify-center">
-            <div className="flex space-x-2 bg-primary-medium/50 p-2 rounded-lg border border-primary-light/20">
-              {skills.map((category, index) => (
-                <button
-                  key={category.category}
-                  onClick={() => setActiveCategory(index)}
-                  className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                    activeCategory === index
-                      ? 'bg-accent-mint text-primary-dark'
-                      : 'text-text-light hover:text-accent-mint hover:bg-primary-light/30'
-                  }`}
-                >
+          {/* Compétences techniques - Affichage direct */}
+          <motion.div variants={itemVariants} className="space-y-12">
+            {skills.map((category, index) => (
+              <div key={category.category} className="space-y-6">
+                <h3 className="text-2xl font-bold text-text-light flex items-center">
+                  <span className="text-2xl mr-3">
+                    {index === 0 ? "💻" : index === 1 ? "🛠️" : "🚀"}
+                  </span>
                   {category.category}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Compétences techniques */}
-          <motion.div
-            key={activeCategory}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {skills[activeCategory]?.technologies.map((skill, index) => (
-              <SkillCard key={skill.name} skill={skill} index={index} />
+                </h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {category.technologies.map((skill, skillIndex) => (
+                    <SkillCard key={skill.name} skill={skill} index={skillIndex} />
+                  ))}
+                </div>
+              </div>
             ))}
           </motion.div>
 
@@ -175,7 +156,7 @@ const Skills = () => {
                 Compétences <span className="text-gradient">transversales</span>
               </h3>
               <p className="text-text-light/70 max-w-2xl mx-auto">
-                Au-delà des aspects techniques, voici les qualités qui font la différence dans mes projets
+                Mes qualités complémentaires
               </p>
             </div>
 
@@ -187,29 +168,6 @@ const Skills = () => {
                 <SoftSkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </motion.div>
-          </motion.div>
-
-          {/* Call to action */}
-          <motion.div 
-            variants={itemVariants}
-            className="text-center bg-primary-medium/30 p-8 rounded-lg border border-primary-light/20"
-          >
-            <h3 className="text-2xl font-bold text-text-light mb-4">
-              Toujours en apprentissage 🚀
-            </h3>
-            <p className="text-text-light/70 mb-6 max-w-2xl mx-auto">
-              Le monde du développement évolue rapidement, et j'adore ça ! 
-              Je suis constamment en train d'apprendre de nouvelles technologies 
-              et d'améliorer mes compétences existantes.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary"
-            >
-              Voir mes projets
-            </motion.button>
           </motion.div>
         </motion.div>
       </div>

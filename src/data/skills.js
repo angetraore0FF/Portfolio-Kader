@@ -3,48 +3,42 @@ export const skills = [
     category: "Frontend",
     technologies: [
       {
-        name: "HTML5",
+        name: "HTML",
         icon: "🌐",
         level: 90,
         color: "#E34F26"
       },
       {
-        name: "CSS3",
+        name: "CSS",
         icon: "🎨",
         level: 85,
         color: "#1572B6"
       },
       {
-        name: "JavaScript",
-        icon: "⚡",
-        level: 80,
+        name: "Dart",
+        icon: "📱",
+        level: 50,
         color: "#F7DF1E"
       },
       {
-        name: "React",
-        icon: "⚛️",
-        level: 75,
+        name: "Python",
+        icon: "🐍",
+        level: 55,
         color: "#61DAFB"
       },
       {
-        name: "Tailwind CSS",
+        name: "Java",
         icon: "💨",
-        level: 80,
+        level: 60,
         color: "#06B6D4"
       },
-      {
-        name: "Sass/SCSS",
-        icon: "💅",
-        level: 70,
-        color: "#CC6699"
-      }
     ]
   },
   {
     category: "Outils & Technologies",
     technologies: [
       {
-        name: "Git",
+        name: "Git",  
         icon: "🔀",
         level: 75,
         color: "#F05032"
@@ -81,36 +75,8 @@ export const skills = [
       }
     ]
   },
-  {
-    category: "En apprentissage",
-    technologies: [
-      {
-        name: "Node.js",
-        icon: "🟢",
-        level: 40,
-        color: "#339933"
-      },
-      {
-        name: "TypeScript",
-        icon: "📘",
-        level: 35,
-        color: "#3178C6"
-      },
-      {
-        name: "Next.js",
-        icon: "▲",
-        level: 30,
-        color: "#000000"
-      },
-      {
-        name: "MongoDB",
-        icon: "🍃",
-        level: 25,
-        color: "#47A248"
-      }
-    ]
-  }
 ]
+
 
 export const softSkills = [
   {
@@ -134,7 +100,7 @@ export const softSkills = [
     icon: "🤝"
   },
   {
-    name: "Persévérance",
+    name: "Résiliance",
     description: "Détermination face aux défis techniques",
     icon: "💪"
   },

@@ -12,7 +12,7 @@ export const projects = [
       "Navigation smooth scroll",
       "Architecture modulaire"
     ],
-    github: "https://github.com/kader/portfolio",
+    github: "https://github.com/angetraore0FF/Portfolio-Kader",
     demo: "https://portfolio-kader.vercel.app",
     status: "En cours",
     category: "Web Development"
@@ -32,45 +32,29 @@ export const projects = [
     ],
     github: "https://github.com/kader/todo-app",
     demo: "https://todo-kader.netlify.app",
-    status: "Terminé",
+    status: "En cours",
     category: "Web Application"
   },
+
   {
     id: 3,
-    title: "Landing Page Restaurant",
-    description: "Page d'atterrissage élégante pour un restaurant avec galerie d'images, menu interactif et formulaire de réservation. Design moderne et appétissant.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    technologies: ["HTML5", "CSS3", "JavaScript", "SASS"],
+    title: "Blog ecommerce",
+    description: "Une boutique ? Un blog ? Pourquoi choisir ! Ce projet Django fusionne les deux pour offrir un site e-commerce dynamique avec un espace de contenu intégré. C’est un projet personnel qui illustre comment créer une application modulaire, scalable et facile à maintenir avec Django.",
+    image: "https://www.retis.be/wp-content/uploads/2022/09/ecommerce-definition.png",
+    technologies: ["JavaScript", "HTML", "CSS", "Python"],
     features: [
-      "Design responsive",
-      "Galerie d'images interactive",
-      "Menu avec filtres",
-      "Formulaire de contact",
-      "Animations CSS"
+      "Ajout/suppression de tâches",
+      "Marquage terminé/non terminé",
+      "Filtrage par statut",
+      "Stockage local persistant",
+      "Interface responsive"
     ],
-    github: "https://github.com/kader/restaurant-landing",
-    demo: "https://restaurant-kader.netlify.app",
+    github: "https://github.com/angetraore0FF/django_ecommerce_blog",
+    demo: "https://todo-kader.netlify.app",
     status: "Terminé",
-    category: "Landing Page"
+    category: "Site Web"
   },
-  {
-    id: 4,
-    title: "Calculatrice Scientifique",
-    description: "Calculatrice web avancée avec fonctions scientifiques, historique des calculs et interface utilisateur intuitive. Parfaite pour les étudiants et professionnels.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    technologies: ["React", "CSS Modules", "Math.js"],
-    features: [
-      "Opérations de base et avancées",
-      "Fonctions trigonométriques",
-      "Historique des calculs",
-      "Interface responsive",
-      "Raccourcis clavier"
-    ],
-    github: "https://github.com/kader/scientific-calculator",
-    demo: "https://calculator-kader.vercel.app",
-    status: "En cours",
-    category: "Utility App"
-  },
+  
   {
     id: 5,
     title: "API Météo Widget",
@@ -86,7 +70,7 @@ export const projects = [
     ],
     github: "https://github.com/kader/weather-widget",
     demo: "https://weather-kader.netlify.app",
-    status: "Terminé",
+    status: "En cours",
     category: "API Integration"
   },
   {
@@ -116,7 +100,8 @@ export const projectCategories = [
   "Landing Page",
   "Utility App",
   "API Integration",
-  "Game Development"
+  "Game Development",
+  "Site Web"
 ]
 
 export const projectStats = {

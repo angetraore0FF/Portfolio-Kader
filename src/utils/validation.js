@@ -10,7 +10,7 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-
 const SPAM_WORDS = [
   'viagra', 'casino', 'lottery', 'winner', 'congratulations',
   'bitcoin', 'crypto', 'investment', 'loan', 'debt',
-  'porn', 'xxx', 'sex', 'adult', 'dating'
+  'porn', 'xxx', 'sex', 'adult', 'dating', '+18'
 ]
 
 /**

@@ -9,7 +9,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    subject: '', 
     message: '',
     honeypot: '' // Champ anti-spam invisible
   })
@@ -25,21 +25,21 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "kader@example.com",
-      href: "mailto:kader@example.com",
+      value: "lacascade2.0@gmail.com",
+      href: "mailto:lacascade2.0@gmail.com",
       description: "Réponse sous 24h"
     },
     {
       icon: Phone,
       title: "Téléphone",
-      value: "+33 6 12 34 56 78",
-      href: "tel:+33612345678",
+      value: "+225 0713798716",
+      href: "tel:++225 0713798716",
       description: "Lun-Ven 9h-18h"
     },
     {
       icon: MapPin,
       title: "Localisation",
-      value: "Paris, France",
+      value: "Côte d'Ivoire, Abidjan",
       href: "#",
       description: "Disponible en remote"
     }
@@ -425,7 +425,7 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="mailto:kader@example.com"
+                href="mailto:lacascade2.0@gmail.com"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary flex items-center space-x-2"
