@@ -188,30 +188,6 @@ const Skills = () => {
               ))}
             </motion.div>
           </motion.div>
-
-          {/* Call to action */}
-          <motion.div 
-            variants={itemVariants}
-            className="text-center bg-primary-medium/30 p-8 rounded-lg border border-primary-light/20"
-          >
-            <h3 className="text-2xl font-bold text-text-light mb-4">
-              Toujours en apprentissage 🚀
-            </h3>
-            <p className="text-text-light/70 mb-6 max-w-2xl mx-auto">
-              Le monde du développement évolue rapidement, et j'adore ça ! 
-              Je suis constamment en train d'apprendre de nouvelles technologies 
-              et d'améliorer mes compétences existantes.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary"
-            >
-              Voir mes projets
-            </motion.button>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   )
