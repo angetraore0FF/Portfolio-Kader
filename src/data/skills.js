@@ -81,35 +81,7 @@ export const skills = [
       }
     ]
   },
-  {
-    category: "En apprentissage",
-    technologies: [
-      {
-        name: "Node.js",
-        icon: "🟢",
-        level: 40,
-        color: "#339933"
-      },
-      {
-        name: "TypeScript",
-        icon: "📘",
-        level: 35,
-        color: "#3178C6"
-      },
-      {
-        name: "Next.js",
-        icon: "▲",
-        level: 30,
-        color: "#000000"
-      },
-      {
-        name: "MongoDB",
-        icon: "🍃",
-        level: 25,
-        color: "#47A248"
-      }
-    ]
-  }
+
 ]
 
 export const softSkills = [
