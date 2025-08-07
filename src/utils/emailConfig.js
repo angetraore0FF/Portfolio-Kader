@@ -177,7 +177,7 @@ export const generateMailtoFallback = (formData) => {
     `Envoyé depuis votre portfolio personnel`
   )
   
-  return `mailto:kader@example.com?subject=${mailtoSubject}&body=${mailtoBody}`
+  return `mailto:lacascade2.0@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`
 }
 
 /**
@@ -219,9 +219,9 @@ export const EMAIL_LIMITS = {
 }
 
 export const CONTACT_INFO = {
-  email: 'kader@example.com',
-  phone: '+33 6 12 34 56 78',
-  location: 'Paris, France',
-  linkedin: 'https://linkedin.com/in/kader',
-  github: 'https://github.com/kader'
+  email: 'lacascade2.0@gmail.com',
+  phone: '+225 0713798716',
+  location: 'Abidjan, Côte d\'Ivoire',
+  linkedin: 'https://www.linkedin.com/in/ange-traor%C3%A9-b2876b315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+  github: 'https://github.com/angetraore0FF'
 }

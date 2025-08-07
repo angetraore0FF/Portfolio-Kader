@@ -76,7 +76,7 @@ const About = () => {
                 </h3>
                 
                 <p className="text-text-light/80 leading-relaxed">
-                  <strong className="text-accent-mint">Développeur junior passionné</strong> basé en France, 
+                  <strong className="text-accent-mint">Développeur junior passionné</strong> basé en Côte d'Ivoire, 
                   je me spécialise dans la création d'expériences web modernes et intuitives. 
                   Mon parcours a commencé par curiosité pour les technologies, et s'est transformé 
                   en une véritable passion pour le code.
