@@ -30,9 +30,9 @@ export const projects = [
       "Stockage local persistant",
       "Interface responsive"
     ],
-    github: "https://github.com/kader/todo-app",
+    github: "https://github.com/angetraore0FF/to-do-app-react",
     demo: "https://todo-kader.netlify.app",
-    status: "En cours",
+    status: "Terminé",
     category: "Web Application"
   },
 
