@@ -60,19 +60,17 @@ export const projects = [
     title: "API Météo Widget",
     description: "Widget météo interactif qui affiche les conditions météorologiques actuelles et les prévisions. Intégration avec une API météo externe.",
     image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    technologies: ["JavaScript", "API REST", "CSS3", "Chart.js"],
+    technologies: ["JavaScript", "API OpenWeather", "CSS3", "Vite"],
     features: [
       "Données météo en temps réel",
-      "Prévisions 5 jours",
-      "Géolocalisation automatique",
-      "Graphiques interactifs",
-      "Recherche par ville"
+      "Recherche par ville ou pays"
     ],
-    github: "https://github.com/kader/weather-widget",
+    github: "https://github.com/angetraore0FF/App-de-m-t-o-en-react",
     demo: "https://weather-kader.netlify.app",
-    status: "En cours",
+    status: "Terminé",
     category: "API Integration"
   },
+
   {
     id: 6,
     title: "Jeu Memory Card",
