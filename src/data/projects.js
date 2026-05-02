@@ -94,7 +94,7 @@ export const projects = [
     id: 7,
     title: "Justice Guide AI",
     description: "Une application d'assistance juridique basée sur l'IA, fournissant des informations et des conseils sur les droits et devoirs des citoyens.",
-    image: "https://unsplash.com/fr/photos/femme-en-robe-tenant-une-figurine-depee-yCdPU73kGSc",
+    image: "https://unsplash.com/fr/photos/outil-en-bois-brun-sur-surface-blanche-veNb0DDegzE",
     technologies: ["React", "CSS Animations", "Local Storage"],
     // features: [
     //   "Plusieurs niveaux de difficulté",
