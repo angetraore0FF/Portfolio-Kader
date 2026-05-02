@@ -88,7 +88,45 @@ export const projects = [
     demo: "https://memory-kader.vercel.app",
     status: "Planifié",
     category: "Game Development"
-  }
+  },
+
+  {
+    id: 7,
+    title: "Justice Guide AI",
+    description: "Une application d'assistance juridique basée sur l'IA, fournissant des informations et des conseils sur les droits et devoirs des citoyens.",
+    image: "https://unsplash.com/fr/photos/femme-en-robe-tenant-une-figurine-depee-yCdPU73kGSc",
+    technologies: ["React", "CSS Animations", "Local Storage"],
+    // features: [
+    //   "Plusieurs niveaux de difficulté",
+    //   "Système de score et timer",
+    //   "Animations fluides",
+    //   "Sauvegarde des meilleurs scores",
+    //   "Design responsive"
+    // ],
+    github: "https://github.com/angetraore0FF/Justice-Guide-AI.git",
+    demo: "",
+    status: "Fait",
+    category: ["Site Web", "Web Application"]
+  },
+
+  // {
+  //   id: 8,
+  //   title: "Jeu Memory Card",
+  //   description: "Jeu de mémoire interactif avec différents niveaux de difficulté, système de score et animations amusantes. Parfait pour tous les âges.",
+  //   image: "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  //   technologies: ["React", "CSS Animations", "Local Storage"],
+  //   features: [
+  //     "Plusieurs niveaux de difficulté",
+  //     "Système de score et timer",
+  //     "Animations fluides",
+  //     "Sauvegarde des meilleurs scores",
+  //     "Design responsive"
+  //   ],
+  //   github: "https://github.com/kader/memory-game",
+  //   demo: "https://memory-kader.vercel.app",
+  //   status: "Planifié",
+  //   category: "Game Development"
+  // }
 ]
 
 export const projectCategories = [
