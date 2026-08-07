@@ -66,7 +66,7 @@ export const projects = [
       "Recherche par ville ou pays"
     ],
     github: "https://github.com/angetraore0FF/App-de-m-t-o-en-react",
-    demo: "https://weather-kader.netlify.app",
+    demo: "https://app-de-m-t-o-en-react.vercel.app/",
     status: "Terminé",
     category: "API Integration"
   },
