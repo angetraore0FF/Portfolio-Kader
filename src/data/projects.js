@@ -50,7 +50,7 @@ export const projects = [
       "Interface responsive"
     ],
     github: "https://github.com/angetraore0FF/django_ecommerce_blog",
-    demo: "https://todo-kader.netlify.app",
+    demo: "https://django-ecommerce-blog.onrender.com",
     status: "Terminé",
     category: "Site Web"
   },
