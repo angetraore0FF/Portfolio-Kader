@@ -3,6 +3,9 @@ import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Loader } from 'luc
 import emailjs from 'emailjs-com';
 import { socials } from '../data/socials';
 import SectionHeader from './ui/SectionHeader';
+import Recaptcha from './ui/Recaptcha';
+
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 const contactInfo = [
   { icon: Mail, title: 'Email', value: 'lacascade2.0@gmail.com', href: 'mailto:lacascade2.0@gmail.com', description: 'Réponse sous 24h' },
@@ -25,7 +28,14 @@ const Contact = () => {
     isLoading: false,
   });
 
+  const [captchaToken, setCaptchaToken] = useState('');
   const formRef = useRef();
+  const recaptchaRef = useRef();
+
+  const resetCaptcha = () => {
+    recaptchaRef.current?.reset();
+    setCaptchaToken('');
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,6 +47,15 @@ const Contact = () => {
     if (formValues.honeypot) return;
     if (!formValues.name || !formValues.email || !formValues.subject || !formValues.message) {
       setSubmitState({ status: 'error', message: 'Tous les champs sont requis.', isLoading: false });
+      return;
+    }
+
+    if (!RECAPTCHA_SITE_KEY) {
+      setSubmitState({ status: 'error', message: "Vérification anti-spam indisponible. Écrivez-moi par email.", isLoading: false });
+      return;
+    }
+    if (!captchaToken) {
+      setSubmitState({ status: 'error', message: 'Veuillez valider le reCAPTCHA.', isLoading: false });
       return;
     }
 
@@ -53,8 +72,10 @@ const Contact = () => {
         subject: formValues.subject,
         message: formValues.message,
         reply_to: formValues.email,
+        'g-recaptcha-response': captchaToken,
       }, userId);
 
+      resetCaptcha();
       setSubmitState({ status: 'success', message: 'Message envoyé avec succès !', isLoading: false });
 
       setTimeout(() => {
@@ -62,6 +83,7 @@ const Contact = () => {
         setSubmitState({ status: null, message: '', isLoading: false });
       }, 2000);
     } catch (error) {
+      resetCaptcha();
       setSubmitState({ status: 'error', message: "Erreur lors de l'envoi.", isLoading: false });
     }
   };
@@ -174,6 +196,22 @@ const Contact = () => {
                 required
                 className="field min-h-[120px] resize-y"
               />
+            </div>
+
+            <div className="space-y-2">
+              <p className="label text-ink/70">Vérification anti-spam</p>
+              {RECAPTCHA_SITE_KEY ? (
+                <Recaptcha
+                  ref={recaptchaRef}
+                  siteKey={RECAPTCHA_SITE_KEY}
+                  onChange={setCaptchaToken}
+                  onError={() =>
+                    setSubmitState({ status: 'error', message: 'Le reCAPTCHA n’a pas pu se charger. Rechargez la page.', isLoading: false })
+                  }
+                />
+              ) : (
+                <p className="text-sm text-danger">reCAPTCHA non configuré (VITE_RECAPTCHA_SITE_KEY manquante).</p>
+              )}
             </div>
 
             {submitState.status && (
