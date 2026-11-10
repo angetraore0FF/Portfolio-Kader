@@ -1,190 +1,107 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Code, Coffee, Heart, Zap, Target, Rocket } from 'lucide-react'
+import { ShieldCheck, Network, Code2 } from 'lucide-react'
+import SectionHeader from './ui/SectionHeader'
 
-const About = () => {
-  const stats = [
-    { label: "Projets réalisés", value: "10+", icon: Code },
-    { label: "Tasses de café", value: "∞", icon: Coffee },
-    { label: "Technologies apprises", value: "15+", icon: Zap },
-    { label: "Passion", value: "100%", icon: Heart }
-  ]
+const education = [
+  {
+    label: 'ECE Paris',
+    title: 'Bachelor Cybersécurité (B3)',
+    detail: 'Formation en cours',
+  },
+  {
+    label: 'Licence',
+    title: 'Réseaux et Télécommunications',
+    detail: 'IIT (Institut International de Technologie), Grand-Bassam, Côte d’Ivoire. Tronc commun Génie Logiciel.',
+  },
+]
 
-  const highlights = [
-    {
-      icon: Target,
-      title: "Objectif",
-      description: "Devenir un développeur full-stack compétent capable de créer des applications web complètes et innovantes."
-    },
-    {
-      icon: Rocket,
-      title: "Ambition",
-      description: "Contribuer à des projets qui ont un impact positif et continuer à apprendre les technologies émergentes."
-    },
-    {
-      icon: Heart,
-      title: "Passion",
-      description: "Transformer des idées créatives en solutions numériques élégantes et fonctionnelles."
-    }
-  ]
+const focus = [
+  {
+    icon: ShieldCheck,
+    title: 'Sécurité des systèmes',
+    description: 'Comprendre comment un système est exposé pour mieux le protéger.',
+  },
+  {
+    icon: Network,
+    title: 'Réseaux',
+    description: "Architecture, protocoles et communications, base de toute démarche de sécurité.",
+  },
+  {
+    icon: Code2,
+    title: 'Développement',
+    description: 'Concevoir et construire des applications, du back-end à l’interface.',
+  },
+]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
+const reveal = {
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-80px' },
+  transition: { duration: 0.4 },
+}
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  }
+const About = () => (
+  <section id="about" className="section-y scroll-mt-16 bg-canvas">
+    <div className="container-page space-y-16">
+      <SectionHeader index="01" label="À propos" title="Réseaux, développement, sécurité" />
 
-  return (
-    <section id="about" className="section-padding bg-primary-medium">
-      <div className="container-max">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="space-y-16"
-        >
-          {/* Header */}
-          <motion.div variants={itemVariants} className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-text-light">
-              À propos de <span className="text-gradient">moi</span>
-            </h2>
-            <p className="text-text-light/70 text-lg max-w-2xl mx-auto">
-              Découvrez mon parcours, mes passions et ce qui me motive dans le développement web
-            </p>
-          </motion.div>
+      <div className="grid gap-12 lg:grid-cols-12">
+        <motion.div {...reveal} className="space-y-6 text-base leading-relaxed text-ink/80 lg:col-span-7 md:text-lg">
+          <p>
+            J'ai obtenu ma Licence en Réseaux et Télécommunications (tronc commun Génie Logiciel) à
+            l'IIT, Institut International de Technologie, à Grand-Bassam en Côte d'Ivoire. Je suis
+            actuellement en Bachelor B3 Cybersécurité à l'ECE Paris.
+          </p>
+          <p>
+            Ce double ancrage, réseaux d'un côté et développement de l'autre, structure ma façon
+            d'aborder la sécurité : comprendre comment un système est construit avant de chercher
+            à le protéger.
+          </p>
+          <p>
+            Je mets ces centres d'intérêt en pratique dans des projets personnels, dont Justice Guide
+            AI, un assistant juridique reposant sur une architecture RAG.
+          </p>
+        </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Contenu principal */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-text-light mb-4">
-                  Salut ! Je suis Kader 👋
-                </h3>
-                
-                <p className="text-text-light/80 leading-relaxed">
-                  <strong className="text-accent-mint">Développeur junior passionné</strong> basé en Côte d'Ivoire, 
-                  je me spécialise dans la création d'expériences web modernes et intuitives. 
-                  Mon parcours a commencé par curiosité pour les technologies, et s'est transformé 
-                  en une véritable passion pour le code.
-                </p>
-                
-                <p className="text-text-light/80 leading-relaxed">
-                  Actuellement en formation intensive, je développe mes compétences en 
-                  <span className="text-accent-mint font-medium"> React, JavaScript </span>
-                  et les outils de développement moderne. J'aime résoudre des problèmes complexes 
-                  et transformer des idées créatives en solutions numériques élégantes.
-                </p>
-                
-                <p className="text-text-light/80 leading-relaxed">
-                  Quand je ne code pas, vous me trouverez en train d'explorer les dernières 
-                  tendances technologiques, de contribuer à des projets open source, ou de 
-                  planifier mon prochain projet créatif.
-                </p>
-              </div>
-
-              {/* Formation et passion */}
-              <div className="bg-primary-dark/50 p-6 rounded-lg border border-primary-light/20">
-                <h4 className="text-xl font-semibold text-text-light mb-3">
-                  📚 Formation & Apprentissage
-                </h4>
-                <ul className="space-y-2 text-text-light/80">
-                  <li>• <strong>Autodidacte</strong> - Apprentissage continu via projets pratiques</li>
-                  <li>• <strong>Formation web</strong> - HTML, CSS, JavaScript, React</li>
-                  <li>• <strong>Veille technologique</strong> - Suivi des dernières tendances</li>
-                  <li>• <strong>Projets personnels</strong> - Application pratique des connaissances</li>
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* Stats et highlights */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-4">
-                {stats.map((stat, index) => {
-                  const Icon = stat.icon
-                  return (
-                    <motion.div
-                      key={stat.label}
-                      variants={itemVariants}
-                      whileHover={{ scale: 1.05 }}
-                      className="bg-primary-dark/50 p-6 rounded-lg text-center border border-primary-light/20 hover:border-accent-mint/50 transition-all duration-300"
-                    >
-                      <Icon className="w-8 h-8 text-accent-mint mx-auto mb-2" />
-                      <div className="text-2xl font-bold text-text-light mb-1">
-                        {stat.value}
-                      </div>
-                      <div className="text-text-light/70 text-sm">
-                        {stat.label}
-                      </div>
-                    </motion.div>
-                  )
-                })}
-              </div>
-
-              {/* Highlights */}
-              <div className="space-y-4">
-                {highlights.map((highlight, index) => {
-                  const Icon = highlight.icon
-                  return (
-                    <motion.div
-                      key={highlight.title}
-                      variants={itemVariants}
-                      whileHover={{ x: 5 }}
-                      className="flex items-start space-x-4 p-4 bg-primary-dark/30 rounded-lg border border-primary-light/10 hover:border-accent-mint/30 transition-all duration-300"
-                    >
-                      <div className="p-2 bg-accent-mint/20 rounded-lg">
-                        <Icon className="w-5 h-5 text-accent-mint" />
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-text-light mb-1">
-                          {highlight.title}
-                        </h5>
-                        <p className="text-text-light/70 text-sm leading-relaxed">
-                          {highlight.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )
-                })}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Call to action */}
-          <motion.div 
-            variants={itemVariants}
-            className="text-center"
-          >
-            <p className="text-text-light/70 mb-6">
-              Prêt à collaborer sur votre prochain projet ?
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary"
-            >
-              Travaillons ensemble
-            </motion.button>
-          </motion.div>
+        {/* Parcours */}
+        <motion.div {...reveal} className="lg:col-span-5">
+          <p className="label mb-4 text-ink/60">[ Parcours ]</p>
+          <ol className="border-l border-line">
+            {education.map((item) => (
+              <li key={item.title} className="relative pb-8 pl-6 last:pb-0">
+                <span className="absolute -left-[5px] top-1.5 size-2.5 rounded-full border border-accent bg-canvas" />
+                <p className="label text-accent">[ {item.label} ]</p>
+                <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
+                <p className="mt-1 text-sm text-ink/70">{item.detail}</p>
+              </li>
+            ))}
+          </ol>
         </motion.div>
       </div>
-    </section>
-  )
-}
+
+      {/* Domaines d'intérêt */}
+      <div className="grid gap-px overflow-hidden rounded border border-line bg-line md:grid-cols-3">
+        {focus.map((item, i) => {
+          const Icon = item.icon
+          return (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.4, ease: 'easeOut', delay: i * 0.08 }}
+              className="space-y-4 bg-surface p-8"
+            >
+              <Icon size={24} strokeWidth={1.5} className="text-accent" aria-hidden="true" />
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-ink/70">{item.description}</p>
+            </motion.div>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+)
 
 export default About

@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "Portfolio Personnel",
-    description: "Un portfolio moderne et responsive développé avec React et Tailwind CSS. Comprend des animations fluides, un système de thème sombre/clair, et une architecture modulaire.",
+    description: "Un portfolio moderne et responsive développé avec React et Tailwind CSS. Comprend des animations fluides et une architecture modulaire.",
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
     features: [
@@ -93,9 +93,9 @@ export const projects = [
   {
     id: 7,
     title: "Justice Guide AI",
-    description: "Une application d'assistance juridique basée sur l'IA, fournissant des informations et des conseils sur les droits et devoirs des citoyens.",
-    image: "https://unsplash.com/fr/photos/outil-en-bois-brun-sur-surface-blanche-veNb0DDegzE",
-    technologies: ["React", "CSS Animations", "Local Storage"],
+    featured: true,
+    description: "Assistant juridique IA - RAG avec Django, ChromaDB, et gestion de la hiérarchie des normes.",
+    technologies: ["Django", "ChromaDB", "RAG", "Python"],
     // features: [
     //   "Plusieurs niveaux de difficulté",
     //   "Système de score et timer",
@@ -105,8 +105,8 @@ export const projects = [
     // ],
     github: "https://github.com/angetraore0FF/Justice-Guide-AI.git",
     demo: "",
-    status: "Fait",
-    category: ["Site Web", "Web Application"]
+    status: "Terminé",
+    category: "Web Application"
   },
 
   // {

@@ -45,7 +45,7 @@ export const emailJSConfig = {
 /**
  * Template de réponse automatique (optionnel)
  * 
- * Subject: "Merci pour votre message - Portfolio Kader"
+ * Subject: "Merci pour votre message - Portfolio Ange"
  * 
  * Body:
  * Bonjour {{ from_name }},
@@ -56,7 +56,7 @@ export const emailJSConfig = {
  * généralement sous 24h.
  * 
  * Cordialement,
- * Kader
+ * Traoré Ange Lamine Abdoul Kader
  * Développeur Junior
  * 
  * ---
@@ -102,7 +102,7 @@ export const prepareTemplateParams = (formData) => {
     from_email: formData.email,
     subject: formData.subject,
     message: formData.message,
-    to_name: 'Kader', // Votre nom
+    to_name: 'Traoré Ange Lamine Abdoul Kader', // Votre nom
     reply_to: formData.email,
     // Métadonnées additionnelles
     timestamp: new Date().toLocaleString('fr-FR'),
@@ -196,7 +196,7 @@ export const testEmailJSConnection = async () => {
       from_email: 'test@portfolio.com',
       subject: 'Test de configuration',
       message: 'Ceci est un test automatique de la configuration EmailJS.',
-      to_name: 'Kader'
+      to_name: 'Traoré Ange Lamine Abdoul Kader'
     }
     
     // Note: En réalité, on ne veut pas envoyer un vrai email de test
@@ -221,7 +221,7 @@ export const EMAIL_LIMITS = {
 export const CONTACT_INFO = {
   email: 'lacascade2.0@gmail.com',
   phone: '+225 0713798716',
-  location: 'Abidjan, Côte d\'Ivoire',
+  location: 'Paris, France',
   linkedin: 'https://www.linkedin.com/in/ange-traor%C3%A9-b2876b315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
   github: 'https://github.com/angetraore0FF'
 }

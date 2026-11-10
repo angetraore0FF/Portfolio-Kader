@@ -2,6 +2,13 @@ import React, { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 import emailjs from 'emailjs-com';
 import { socials } from '../data/socials';
+import SectionHeader from './ui/SectionHeader';
+
+const contactInfo = [
+  { icon: Mail, title: 'Email', value: 'lacascade2.0@gmail.com', href: 'mailto:lacascade2.0@gmail.com', description: 'Réponse sous 24h' },
+  { icon: Phone, title: 'Téléphone', value: '+225 0713798716', href: 'tel:+2250713798716', description: 'Lun-Ven 9h-18h' },
+  { icon: MapPin, title: 'Localisation', value: 'Paris, France', href: null, description: 'Disponible en remote' },
+];
 
 const Contact = () => {
   const [formValues, setFormValues] = useState({
@@ -9,20 +16,20 @@ const Contact = () => {
     email: '',
     subject: '',
     message: '',
-    honeypot: ''
+    honeypot: '',
   });
 
   const [submitState, setSubmitState] = useState({
     status: null,
     message: '',
-    isLoading: false
+    isLoading: false,
   });
 
   const formRef = useRef();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues(prev => ({ ...prev, [name]: value }));
+    setFormValues((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -45,7 +52,7 @@ const Contact = () => {
         from_email: formValues.email,
         subject: formValues.subject,
         message: formValues.message,
-        reply_to: formValues.email
+        reply_to: formValues.email,
       }, userId);
 
       setSubmitState({ status: 'success', message: 'Message envoyé avec succès !', isLoading: false });
@@ -59,137 +66,156 @@ const Contact = () => {
     }
   };
 
-  const contactInfo = [
-    { icon: Mail, title: "Email", value: "lacascade2.0@gmail.com", href: "mailto:lacascade2.0@gmail.com", description: "Réponse sous 24h" },
-    { icon: Phone, title: "Téléphone", value: "+225 0713798716", href: "tel:+2250713798716", description: "Lun-Ven 9h-18h" },
-    { icon: MapPin, title: "Localisation", value: "Côte d'Ivoire, Abidjan", href: "#", description: "Disponible en remote" }
+  const fields = [
+    { name: 'name', label: 'Nom complet', type: 'text', autoComplete: 'name' },
+    { name: 'email', label: 'Adresse email', type: 'email', autoComplete: 'email' },
+    { name: 'subject', label: 'Sujet', type: 'text', autoComplete: 'off' },
   ];
 
   return (
-    <section id="contact" className="section-padding bg-primary-dark">
-      <div className="container-max">
-        <div className="space-y-16">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-text-light">
-              Contactez-<span className="text-gradient">moi</span>
-            </h2>
-            <p className="text-text-light/70 text-lg max-w-2xl mx-auto">
-              Vous avez un projet en tête ou souhaitez simplement échanger ? N'hésitez pas à me contacter !
-            </p>
-          </div>
+    <section id="contact" className="section-y scroll-mt-16 border-t border-line bg-canvas">
+      <div className="container-page space-y-16">
+        <SectionHeader
+          index="04"
+          label="Contact"
+          title="Échangeons"
+          intro="Un projet, une opportunité ou simplement une question : écrivez-moi."
+        />
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-text-light mb-6">Restons en contact</h3>
-                {contactInfo.map((info) => {
-                  const Icon = info.icon;
-                  return (
-                    <div key={info.title} className="flex items-start space-x-4 p-4 bg-primary-medium/30 rounded-lg border border-primary-light/10">
-                      <div className="p-3 bg-accent-mint/20 rounded-lg">
-                        <Icon className="w-6 h-6 text-accent-mint" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-text-light mb-1">{info.title}</h4>
-                        <a href={info.href} className="text-accent-mint hover:underline font-medium">{info.value}</a>
-                        <p className="text-text-light/70 text-sm mt-1">{info.description}</p>
-                      </div>
+        <div className="grid gap-12 lg:grid-cols-12">
+          {/* Coordonnées */}
+          <div className="space-y-8 lg:col-span-5">
+            <ul className="space-y-4">
+              {contactInfo.map((info) => {
+                const Icon = info.icon;
+                return (
+                  <li key={info.title} className="card flex items-start gap-4 p-5">
+                    <Icon size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
+                    <div>
+                      <p className="label text-ink/60">[ {info.title} ]</p>
+                      {info.href ? (
+                        <a href={info.href} className="mt-1 block font-medium text-accent hover:underline">
+                          {info.value}
+                        </a>
+                      ) : (
+                        <p className="mt-1 font-medium text-ink">{info.value}</p>
+                      )}
+                      <p className="mt-1 text-sm text-ink/60">{info.description}</p>
                     </div>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="space-y-3">
+              <p className="label text-ink/60">[ Réseaux ]</p>
+              <ul className="flex gap-3">
+                {socials.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <li key={social.name}>
+                      <a
+                        href={social.url}
+                        target={social.url.startsWith('mailto:') ? undefined : '_blank'}
+                        rel="noopener noreferrer"
+                        aria-label={social.name}
+                        title={social.name}
+                        className="flex size-11 items-center justify-center rounded border border-line bg-surface text-accent transition-colors duration-200 hover:border-accent"
+                      >
+                        <Icon size={18} strokeWidth={1.5} />
+                      </a>
+                    </li>
                   );
                 })}
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-text-light">Suivez-moi aussi sur</h4>
-                <div className="flex space-x-4">
-                  {socials.map((social) => {
-                    const Icon = social.icon;
-                    return (
-                      <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="p-3 bg-primary-medium hover:bg-accent-mint hover:text-primary-dark rounded-lg transition-colors duration-300" title={social.name}>
-                        <Icon className="w-6 h-6" />
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 bg-primary-medium/30 p-8 rounded-lg border border-primary-light/20">
-                <h3 className="text-2xl font-bold text-text-light mb-6">Envoyez-moi un message</h3>
-
-                <div className="hidden">
-                  <input type="text" name="honeypot" value={formValues.honeypot} onChange={handleChange} tabIndex="-1" autoComplete="off" />
-                </div>
-
-                <input
-                  name="name"
-                  type="text"
-                  placeholder="Nom complet"
-                  value={formValues.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-primary-medium text-text-light border border-primary-light rounded-lg caret-white"
-                />
-
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Adresse email"
-                  value={formValues.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-primary-medium text-text-light border border-primary-light rounded-lg caret-white"
-                />
-
-                <input
-                  name="subject"
-                  type="text"
-                  placeholder="Sujet"
-                  value={formValues.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-primary-medium text-text-light border border-primary-light rounded-lg caret-white"
-                />
-
-                <textarea
-                  name="message"
-                  placeholder="Votre message"
-                  value={formValues.message}
-                  onChange={handleChange}
-                  rows={5}
-                  required
-                  className="w-full px-4 py-3 bg-primary-medium text-text-light border border-primary-light rounded-lg resize-y min-h-[120px] caret-white"
-                />
-
-                {submitState.status && (
-                  <div className={`p-4 rounded-lg border flex items-center space-x-3 ${submitState.status === 'success' ? 'bg-green-500/20 border-green-500/30 text-green-400' : 'bg-red-500/20 border-red-500/30 text-red-400'}`}>
-                    {submitState.status === 'success' ? <CheckCircle className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
-                    <span className="text-sm">{submitState.message}</span>
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={submitState.isLoading}
-                  className={`w-full flex items-center justify-center space-x-3 px-8 py-4 rounded-lg font-medium transition-colors duration-300 ${submitState.isLoading ? 'bg-primary-light cursor-not-allowed' : 'bg-accent-mint hover:bg-accent-mint/90 text-primary-dark'}`}
-                >
-                  {submitState.isLoading ? (
-                    <>
-                      <Loader className="w-5 h-5 animate-spin" />
-                      <span>Envoi en cours...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      <span>Envoyer le message</span>
-                    </>
-                  )}
-                </button>
-
-                <p className="text-text-light/60 text-xs text-center">Vos données sont utilisées uniquement pour vous répondre.</p>
-              </form>
+              </ul>
             </div>
           </div>
+
+          {/* Formulaire */}
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="card space-y-5 p-6 hover:border-line md:p-8 lg:col-span-7"
+          >
+            <p className="label text-accent">[ Envoyer un message ]</p>
+
+            <div className="hidden">
+              <input type="text" name="honeypot" value={formValues.honeypot} onChange={handleChange} tabIndex="-1" autoComplete="off" />
+            </div>
+
+            {fields.map((f) => (
+              <div key={f.name} className="space-y-2">
+                <label htmlFor={`contact-${f.name}`} className="label block text-ink/70">
+                  {f.label}
+                </label>
+                <input
+                  id={`contact-${f.name}`}
+                  name={f.name}
+                  type={f.type}
+                  autoComplete={f.autoComplete}
+                  value={formValues[f.name]}
+                  onChange={handleChange}
+                  required
+                  className="field"
+                />
+              </div>
+            ))}
+
+            <div className="space-y-2">
+              <label htmlFor="contact-message" className="label block text-ink/70">
+                Message
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                value={formValues.message}
+                onChange={handleChange}
+                rows={5}
+                required
+                className="field min-h-[120px] resize-y"
+              />
+            </div>
+
+            {submitState.status && (
+              <div
+                role="status"
+                className={`flex items-center gap-3 rounded border p-4 text-sm ${
+                  submitState.status === 'success'
+                    ? 'border-accent text-accent'
+                    : 'border-danger text-danger'
+                }`}
+              >
+                {submitState.status === 'success' ? (
+                  <CheckCircle size={18} strokeWidth={1.5} />
+                ) : (
+                  <AlertCircle size={18} strokeWidth={1.5} />
+                )}
+                <span>{submitState.message}</span>
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={submitState.isLoading}
+              className="btn-solid w-full disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {submitState.isLoading ? (
+                <>
+                  <Loader size={16} strokeWidth={1.5} className="animate-spin" />
+                  <span>Envoi en cours...</span>
+                </>
+              ) : (
+                <>
+                  <Send size={16} strokeWidth={1.5} />
+                  <span>Envoyer le message</span>
+                </>
+              )}
+            </button>
+
+            <p className="text-center text-xs text-ink/60">
+              Vos données sont utilisées uniquement pour vous répondre.
+            </p>
+          </form>
         </div>
       </div>
     </section>

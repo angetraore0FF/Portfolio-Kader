@@ -1,6 +1,16 @@
 export const skills = [
   {
-    category: "Frontend",
+    category: "Réseaux & Sécurité",
+    technologies: [
+      { name: "Linux" },
+      { name: "Wireshark" },
+      { name: "Nmap" },
+      { name: "TCP/IP" },
+      { name: "Routage & Switching" },
+    ]
+  },
+  {
+    category: "Langages",
     technologies: [
       {
         name: "HTML",
