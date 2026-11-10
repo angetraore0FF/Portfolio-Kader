@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kader-portfolio-psi.vercel.app/sitemap.xml

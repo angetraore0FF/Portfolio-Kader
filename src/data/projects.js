@@ -13,7 +13,7 @@ export const projects = [
       "Architecture modulaire"
     ],
     github: "https://github.com/angetraore0FF/Portfolio-Kader",
-    demo: "https://portfolio-kader.vercel.app",
+    demo: "https://kader-portfolio-psi.vercel.app",
     status: "En cours",
     category: "Web Development"
   },
